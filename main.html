@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Theory Of Computation</title>
+	 <link href="styles/styles.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="script/NFA2RG.js"></script>
+	<script src="script/RG2NFA.js"></script>
+<!-- Script to navigate tabs -->
+<script>
+	function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+</script>
+
+
+</head>
+
+<body>
+<h1>Theory Of Computation</h1>
+
+<ul class="tab">
+  <li><a href="#" class="tablinks active" onclick="openTab(event, 'Home')">Home</a></li>
+  <li><a href="#" class="tablinks" onclick="openTab(event, 'RG2NFA')">RG &#8594 NFA</a></li>
+  <li><a href="#" class="tablinks" onclick="openTab(event, 'NFA2RG')">NFA &#8594 RG</a></li>
+  <li><a href="#" class="tablinks" onclick="openTab(event, 'HelpDoc')">Help+Doc</a></li>
+</ul>
+
+
+<div id="Home" class="tabcontent" style="display:block">
+  <h3>TIC2151 Thoery of Computation</h3>
+<div class="container">
+	<div class="row">
+
+	<div class="column">
+	    <img src="images/temp.png" alt="leader" width="100px" height="100px">
+	   	<br>
+	    <span class="captionstudent">Chong Wai Hou</span>
+	    <br>
+	    <span class="captionstudent">1161104445</span>
+	</div>
+	<div class="column">
+	    <img src="images/lkm.jpg" alt="member1" width="100px" height="100px">
+	    <br>
+	    <span class="captionstudent">Leong Kah Ming</span>
+	    <br>
+	    <span class="captionstudent">1171100884</span>
+	</div>
+		<div class="column">
+	    <img src="images/temp.png" alt="member2" width="100px" height="100px">
+	    <br>
+	    <span class="captionstudent">Hariharan</span>
+	    <br>
+	    <span class="captionstudent">1171302740</span>
+	</div>
+		<div class="column">
+	    <img src="images/tj.jpg" alt="member3" width="100px" height="100px">
+	    <br>
+	    <span class="captionstudent">Tharsyan</span>
+	    <br>
+	    <span class="captionstudent">1171302943</span>
+	</div>
+
+	</div>
+
+		<!-- Member List -->
+	<div>
+		<br>
+	<table style="width:30%;">
+	  <tr>
+	    <th>Name</th>
+	    <th>Participation Percentage</th> 
+	  </tr>
+	  <tr>
+	    <td>Chong Wai Hou</td>
+	    <td>___%</td>
+	  </tr>
+	  <tr>
+	    <td>Leong Kah Ming</td>
+	    <td>___%</td>
+	  </tr>
+	  <tr>
+	    <td>Hariharan</td>
+	    <td>___%</td>
+	  </tr>
+	  	<tr>
+	    <td>Tharsyan Raaj</td>
+	    <td>___%</td>
+	  </tr>
+	</table>
+	</div>
+</div>
+</div>
+
+
+<div id="RG2NFA" class="tabcontent">
+  <h3>RG &#8594 NFA</h3>
+  	<div class="container">
+		<a name="RG2NFA"></a>
+		<h4>Regular Grammar To Nondeterministic Finite Automaton</h4>
+		<div class="panel panel-default" style="width: 1060px; height: 1600px">
+			<div class="panel-body">
+        <div>
+          <p>Instruction
+          <br>--------------------------------------------------------------------<br>
+          </p>
+          <br>
+        1. Enter any number of variables.<br>
+        2. The input should accept number of variables. <b>Minumum 3 aplphabets</b> and an <b>epsilon (e)</b>.<br>
+         &nbsp;  &nbsp; Example input:<br><b>
+         &nbsp;  &nbsp; A -> aR<br>
+         &nbsp;  &nbsp; R -> bR | aS<br>
+         &nbsp;  &nbsp; S -> bT<br>
+         &nbsp;  &nbsp; T -> R | e<br></b>
+        3. 
+        </div>
+				<div class="row">
+          <div class="col-xs-3">
+            <br>
+						<div class="form-group" style="width: 180px">
+							<h5>Regular Grammars (Input)</h5>
+              <textarea class="form-control" id="rgIa" rows="10"></textarea>
+              <tr class="hide">
+            <td class="hide" style="background-color:yellow;">test</td><td><p id='test'></p></td>
+            </tr>
+            </div>
+          </div>
+          <div class="col-xs-1">
+          </div>
+          <div class="col-xs-4">
+            <table class="table" style="margin-top:10px">
+              <tr>
+                <th><h5>Check String (Input)</h5></th>
+              </tr>
+              <tr>
+                <td> <input type="text" id='cs1'> = <p id='rs1'></p></td>
+              </tr>
+              <tr>
+                <td> <input type="text" id='cs2'> = <p id='rs2'></p></td>
+              </tr>
+              <tr>
+                <td> <input type="text" id='cs3'> = <p id='rs3'></p></td>
+              </tr>
+              <tr>
+                <td> <input type="text" id='cs4'> = <p id='rs4'></p></td>
+              </tr>
+              <tr>
+                <td> <input type="text" id='cs5'> = <p id='rs5'></p></td>
+              </tr>
+            </table>
+            <a class="btn btn-primary" role="button" id="RGButtonCheck" style="margin-left:10px" onclick="checkRG()">Check</a>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col-xs-3">
+            <br>
+            <a class="btn btn-primary" role="button" onclick="getRGinput()">Convert RG Into NFA</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <br>
+            <br>
+            <div id='formalDef'>
+              <h5>Formal Definition</h5>
+              <p style="font-weight: bold;">M = (Q, &Sigma;, &delta;, po, F)</p>
+              <p style="display: inline;">Q = {</p><p id='variables' style="display: inline;"></p><p style="display: inline;">}</p> <br>
+              <p style="display: inline;">&Sigma; = {</p><p id='alphabets' style="display: inline;"></p><p style="display: inline;">}</p>
+              <p>&delta; : Q x &Sigma;ε -> Pow(Q)</p>
+              <p style="display: inline;">po = </p><p = id='starting' style="display: inline;"></p> <br>
+              <p style="display: inline;">F = {</p><p = id='final' style="display: inline;"></p><p  style="display: inline;">}</p>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <br>
+            <br>
+            <h5>Transition Table</h5>
+            <table class="table table-bordered" id='transNFA'>
+              <tr>
+                <th> </th>
+                <th>a</th>
+                <th>b</th>
+                <th>c</th>
+                <th>ε</th>
+              </tr>
+            </table>
+          </div>
+          <div class="col-xs-3">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<div id="NFA2RG" class="tabcontent">
+  <h3>NFA &#8594 RG</h3>
+  <div class="container">
+  	<h4>Nondeterministic Finite Automaton To Regular Grammar</h4>
+    <div class="panel panel-default" style="width: 1130px; height: 900px">
+    <div class="panel-body">
+      <div>
+        <p>
+          Instruction <br>
+          -----------------------------------------------------------------------------------------------------------------------------<br>
+          1. State (Q) can accept any letters excepted for the unicode letters.<br>
+          2. Alphabets only accept a, b, c, and epsilon(ε) only, avoid write the aplhabets other than this.<br>
+          3. Write the comma (,) in between the boxes to do the separation.<br>
+          4. Do not type space into the boxes as it will cause backend cannot read the letters properly.<br>
+          5. Leave the state inputs empty which it equivalent to &Oslash; in the Transition Table. (If the user do not want to define)</p>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-xs-2">
+          <h5 style="text-align:center;">NFA (Input)</h5>
+          <table class="table table-bordered">
+          <tr>
+            <td style="background-color:LightGray;">&Sigma;</td><td><input type="text" id ='state' style="width:90%;"/></td>
+          </tr>
+          <tr>
+            <td style="background-color:LightGray;">Q</td><td><input type="text" id ='input' style="width:90%;"/></td>
+          </tr>
+          <tr>
+            <td style="background-color:LightGray;">Start</td><td><input type="text" id ='start_state' style="width:30%;"/></td>
+          </tr>
+          <tr>
+            <td style="background-color:LightGray;">Final</td><td><input type="text" id ='final_state' style="width:90%;"/></td>
+          </tr>
+          <tr class="hide">
+            <td class="hide" style="background-color:yellow;">test</td><td><p id='test'></p></td>
+          </tr>
+          </table>
+        </div>
+        <div class="col-xs-2">
+          <br>
+          <br>
+          <a class="btn btn-primary" role="button" onclick="getNFAinput()">Read Input</a>
+        </div>
+        <div class="col-xs-4">
+          <h5 style="text-align:center">Transition Table</h5>
+          <table class="table table-bordered" style="margin-left:0px; width:300%" id='transRG'>
+            <p id='transRG1'></p>
+          </table>
+        </div>
+        <div class="col-xs-1">
+          <br>
+          <br>
+          <a class="btn btn-primary" role="button" onclick="convertRG()">Convert->RG</a>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-xs-2">
+          <h5 style="text-align:center">Regular Grammar</h5>
+          <form>
+            <div class="form-group">
+              <textarea class="form-control" id='RG' rows="6" disabled style="font-size:18px; resize:none;"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-2">
+          <h5>Check String (Input)</h5>
+          <input type="text" id='column_1'>
+          <input type="text" id='column_2'>
+          <input type="text" id='column_3'>
+          <input type="text" id='column_4'>
+          <input type="text" id='column_5'>
+        </div>
+        <br>
+        <div class="col-xs-3" style="margin-left:-1px; margin-top:6px;">
+          <p id='row_1'></p>
+          <p id='row_2'></p>
+          <p id='row_3'></p>
+          <p id='row_4'></p>
+          <p id='row_5'></p>
+        </div>  
+      </div>
+      <a class="btn btn-primary" role="button" onclick="checkString()" style="margin-left:284px; margin-top:-40px;">Check</a>
+    </div>  
+  </div>
+</div>
+</div>
+
+<div id="HelpDoc" class="tabcontent">
+  <h3>Help + Doc</h3>
+  <div class="container">
+  <a name="Help"></a>
+  <h4>User Manual</h4>
+  <div class="panel panel-default" style="width: 1130px; height: 900px">
+    <div class="panel-body">
+      <p><b>Home</b></p>
+      <p>-Displays list of Student Names,ID, pictures and contribution to the assignment.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+</body>
+</html>
